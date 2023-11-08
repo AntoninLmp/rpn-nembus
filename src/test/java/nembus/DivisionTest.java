@@ -33,4 +33,16 @@ public class DivisionTest {
         int result = rpnEvaluator.evalRPN(expression);
         assertEquals(0, result);
     }
+
+    @Test
+    void expression78dividedBy0ThrowsException() {
+        String expression = "78 0 /";
+        ArithmeticException thrown = assertThrows(
+                ArithmeticException.class,
+                () -> rpnEvaluator.evalRPN(expression),
+                "Expected ArithmeticException to be thrown, but it hasn't been thrown"
+        );
+
+        assertTrue(thrown.getMessage().contains("/ by zero"));
+    }
 }

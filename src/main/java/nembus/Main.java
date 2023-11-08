@@ -26,6 +26,9 @@ public class Main {
                         result = x * y;
                         break;
                     case "/":
+                        if (y == 0)
+                            throw new ArithmeticException("/ by zero");
+
                         result = x / y;
                         break;
                     default:
