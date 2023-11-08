@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class Main {
-    public static int evalRPN(String expression) {
+    public int evalRPN(String expression) {
         // Divide the string
         String[] tokens = expression.split(" ");
         Deque<Integer> stack = new ArrayDeque<>();
@@ -39,6 +39,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println(evalRPN("4 2 +"));
+        Main main = new Main();
+        System.out.println(main.evalRPN("4 2 +"));
     }
 }
