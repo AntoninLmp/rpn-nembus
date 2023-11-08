@@ -38,7 +38,7 @@ public class Main {
         return stack.pop();
     }
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
         System.out.println(evalRPN("4 2 +"));
     }
 }
