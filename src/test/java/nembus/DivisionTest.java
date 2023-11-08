@@ -26,4 +26,11 @@ public class DivisionTest {
         assertNotEquals(7, result);
         assertEquals(-7, result);
     }
+
+    @Test
+    void expression5dividedBy10DividedBy5Returns0() {
+        String expression = "5 10 / 5 /";
+        int result = rpnEvaluator.evalRPN(expression);
+        assertEquals(0, result);
+    }
 }
