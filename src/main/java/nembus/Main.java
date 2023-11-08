@@ -26,6 +26,9 @@ public class Main {
                         result = x * y;
                         break;
                     case "/":
+                        if (y == 0)
+                            throw new ArithmeticException("/ by zero");
+
                         result = x / y;
                         break;
                     default:
@@ -37,8 +40,9 @@ public class Main {
         }
         return stack.pop();
     }
-
-    public void main(String[] args) {
-        System.out.println(evalRPN("4 2 +"));
+  
+    public static void main(String[] args) {
+        Main main = new Main();
+        System.out.println(main.evalRPN("4 2 +"));
     }
 }
