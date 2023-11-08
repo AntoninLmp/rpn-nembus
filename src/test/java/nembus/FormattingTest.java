@@ -31,4 +31,28 @@ public class FormattingTest {
 
         assertTrue(thrown.getMessage().contains("expression is empty"));
     }
+
+    @Test
+    void expressionWithoutOperatorsThrowsException() {
+        String expression = "15 4 1 89 9";
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> rpnEvaluator.evalRPN(expression),
+                "Expected IllegalArgumentException to be thrown, but it hasn't been"
+        );
+
+        assertTrue(thrown.getMessage().contains("badly formatted expression"));
+    }
+
+    @Test
+    void expressionWithoutOperandsThrowsException() {
+        String expression = "+ - / *";
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> rpnEvaluator.evalRPN(expression),
+                "Expected IllegalArgumentException to be thrown, but it hasn't been"
+        );
+
+        assertTrue(thrown.getMessage().contains("badly formatted expression"));
+    }
 }
