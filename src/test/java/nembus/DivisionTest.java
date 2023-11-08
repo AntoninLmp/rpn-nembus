@@ -18,4 +18,12 @@ public class DivisionTest {
         int result = rpnEvaluator.evalRPN(expression);
         assertEquals(4, result);
     }
+
+    @Test
+    void expression28dividedByNegative4DoesntReturn7() {
+        String expression = "28 0 4 - /";
+        int result = rpnEvaluator.evalRPN(expression);
+        assertNotEquals(7, result);
+        assertEquals(-7, result);
+    }
 }
