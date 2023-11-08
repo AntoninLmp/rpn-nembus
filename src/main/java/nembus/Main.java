@@ -1,7 +1,6 @@
 package nembus;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.*;
 
 public class Main {
     public int evalRPN(String expression) {
@@ -28,13 +27,24 @@ public class Main {
                     case "/":
                         if (y == 0)
                             throw new ArithmeticException("/ by zero");
-
                         result = x / y;
                         break;
                     default:
                         throw new IllegalArgumentException();
                 }
                 stack.push(result);
+            } else if (token.equals("sqrt")) {
+                int x = stack.pop();
+                int result = (int) Math.sqrt(x);
+                stack.push(result);
+            } else if (token.equals("max")) {
+                ArrayList<Integer> array = new ArrayList<Integer>();
+                while(!stack.isEmpty()){
+                    if (!token.equals("+") && !token.equals("-") && !token.equals("*") && !token.equals("/")){
+                        array.add(stack.pop());
+                    }
+                }
+                return Collections.max(array);
             } else
                 stack.push(Integer.parseInt(token));
         }
@@ -43,6 +53,6 @@ public class Main {
   
     public static void main(String[] args) {
         Main main = new Main();
-        System.out.println(main.evalRPN("4 2 +"));
+        System.out.println(main.evalRPN("4 20 + 9 14 9 max"));
     }
 }
