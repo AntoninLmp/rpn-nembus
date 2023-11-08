@@ -1,20 +1,10 @@
 package nembus;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SubstractionTest {
-
-    @AfterAll
-    static void afterAll() {
-
-    }
 
     @Test
     void substraction2NumbersResultIsPositive() {
@@ -65,9 +55,5 @@ class SubstractionTest {
         Main main = new Main();
         int result = main.evalRPN(expression);
         assertEquals(count, result);
-    }
-
-    @Test
-    void itDoesNotWork() {
     }
 }
